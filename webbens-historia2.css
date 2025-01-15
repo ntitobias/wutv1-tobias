@@ -8,9 +8,14 @@ nav{
     
 }
 
-nav ul li{
+nav ul{
     list-style-type: none;
     margin: 0;
+    padding: 10px;
+
+}
+
+nav li {
     padding: 5px;
 }
 
