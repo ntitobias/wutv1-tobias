@@ -16,8 +16,12 @@ p{
     color: #666;
 }
 
+.highlight{
+    background-color: yellow;
+}
+
 /* Navigering */
-nav ul {
+.mainnav {
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -36,9 +40,9 @@ nav li:last-child{
 }
 
 nav li a {
-    display:block;
-    color: #000;
-    padding: 8px 16px;
+    display: block;
+    color: #000; 
+    padding: 16px 8px;
     text-decoration: none;
 }
 
@@ -47,3 +51,25 @@ nav li a:hover {
     background-color: #b5e7a0;
 
   }
+
+@media screen and (min-width: 600px) {
+
+    nav ul{
+        padding: 16px 8px; /*horizontal nav*/
+
+    }
+
+    nav li{
+        display: inline; /*horizontal nav*/
+    }
+
+    nav li a{
+        display: inline;
+    }
+}
+
+.test{
+    width: 100px;
+    height: 200px;
+    background-color: #b5e7a0;
+}

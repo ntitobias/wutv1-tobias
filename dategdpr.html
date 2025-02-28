@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontaktformulär</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #a0a0a0;
+            color: #ccc;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 50%;
+            margin: auto;
+            background: #000;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 50px;
+        }
+        h2 {
+            text-align: center;
+            color: #ccc;
+        }
+        label {
+            display: block;
+            margin: 15px 0 5px;
+        }
+        input[type="text"], input[type="email"], input[type="number"], select {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        input[type="checkbox"] {
+            margin-right: 10px;
+        }
+        input[type="submit"] {
+            background: #5cb85c;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background: #4cae4c;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Kontaktformulär</h2>
+        <form action="/submit" method="post">
+            <label for="name">Namn:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">E-post:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="age">Ålder:</label>
+            <input type="number" id="age" name="age" required>
+
+            <label for="gender">Kön:</label>
+            <select id="gender" name="gender">
+                <option value="male">Man</option>
+                <option value="female">Kvinna</option>
+                <option value="other">Annan</option>
+                <option value="prefer_not_to_say">Föredrar att inte säga</option>
+            </select>
+
+            <label for="gender_identity">Könsidentitet eller könsuttryck:</label>
+            <select id="gender_identity" name="gender_identity">
+                <option value="cisgender">Cisgender</option>
+                <option value="transgender">Transgender</option>
+                <option value="non_binary">Icke-binär</option>
+                <option value="other">Annan</option>
+                <option value="prefer_not_to_say">Föredrar att inte säga</option>
+            </select>
+
+            <label for="religion">Religion eller annan trosuppfattning:</label>
+            <select id="religion" name="religion">
+                <option value="christianity">Kristendom</option>
+                <option value="islam">Islam</option>
+                <option value="hinduism">Hinduism</option>
+                <option value="buddhism">Buddhism</option>
+                <option value="other">Annan</option>
+                <option value="prefer_not_to_say">Föredrar att inte säga</option>
+            </select>
+
+            <label for="sexual_orientation">Sexuell läggning:</label>
+            <select id="sexual_orientation" name="sexual_orientation">
+                <option value="heterosexual">Heterosexuell</option>
+                <option value="homosexual">Homosexuell</option>
+                <option value="bisexual">Bisexuell</option>
+                <option value="other">Annan</option>
+                <option value="prefer_not_to_say">Föredrar att inte säga</option>
+            </select>
+
+            <label for="ethnicity">Etnisk tillhörighet:</label>
+            <select id="ethnicity" name="ethnicity">
+                <option value="asian">Asiatisk</option>
+                <option value="black">Svart</option>
+                <option value="hispanic">Latino</option>
+                <option value="white">Vit</option>
+                <option value="other">Annan</option>
+                <option value="prefer_not_to_say">Föredrar att inte säga</option>
+            </select>
+
+            <label for="disability">Funktionsnedsättning:</label>
+            <select id="disability" name="disability">
+                <option value="none">Ingen</option>
+                <option value="physical">Fysisk</option>
+                <option value="mental">Mental</option>
+                <option value="other">Annan</option>
+                <option value="prefer_not_to_say">Föredrar att inte säga</option>
+            </select>
+
+            <label for="union_membership">Facktillhörighet:</label>
+            <select id="union_membership" name="union_membership">
+                <option value="union1">Fackförbund 1</option>
+                <option value="union2">Fackförbund 2</option>
+                <option value="union3">Fackförbund 3</option>
+                <option value="none">Ingen</option>
+                <option value="prefer_not_to_say">Föredrar att inte säga</option>
+            </select>
+
+            <label>
+                <input type="checkbox" id="consent" name="consent" required>
+                Jag samtycker till att mina uppgifter samlas in och behandlas enligt integritetspolicyn.
+            </label>
+
+            <label>
+                <input type="checkbox" id="sensitive_data_consent" name="sensitive_data_consent" required>
+                Jag samtycker till att känsliga personuppgifter (religion, sexuell läggning, etniskt ursprung) samlas in och behandlas.
+            </label>
+
+            <input type="submit" value="Skicka">
+        </form>
+    </div>
+</body>
+</html>
