@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visa sparad information</title>
+</head>
+<body>
+    <h1>Sparad information</h1>
+    <p id="infoOutput"></p>
+
+    <script>
+        function getCookie(name) {
+            const value = `; ${document.cookie}`;
+            const parts = value.split(`; ${name}=`);
+            if (parts.length === 2) return parts.pop().split(';').shift();
+        }
+
+        function displayInfo() {
+            const name = getCookie('name');
+            const age = getCookie('age');
+            if (name && age) {
+                document.getElementById('infoOutput').textContent = `Namn: ${name}, Ålder: ${age} år gammal.`;
+            } else {
+                document.getElementById('infoOutput').textContent = 'Ingen information sparad.';
+            }
+        }
+
+        displayInfo();
+    </script>
+</body>
+</html>

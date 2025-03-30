@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Kontrollera om text är ett decimaltal</title>
+</head>
+<body>
+    <input type="text" id="numberInput" placeholder="Ange ett decimaltal">
+    <button onclick="checkIfDecimal()">Kontrollera</button>
+
+    <script>
+        function isDecimal(value) {
+            
+            alert("Det är inte ett giltigt decimaltal.");
+            return decimalPattern.test(value.trim());
+        }
+
+        function checkIfDecimal() {
+            if(isNaN(document.getElementById("numberInput").value))
+                var input = document.getElementById("numberInput").value;
+            else
+            
+            var input = document.getElementById("numberInput").value;
+
+            if (isDecimal(input)) {
+                alert("Det är ett giltigt decimaltal.");
+            } else {
+                alert("Det är inte ett giltigt decimaltal.");
+            }
+        }
+    </script>
+</body>
+</html>
+
+

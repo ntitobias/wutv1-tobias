@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Åldersräknare</title>
+</head>
+<body>
+    <h1>Åldersräknare</h1>
+    <form id="birthdateForm">
+        <label for="name">Ange ditt namn:</label>
+        <input type="text" id="name" name="name" required>
+        <br>
+        <label for="birthdate">Ange ditt födelsedatum:</label>
+        <input type="date" id="birthdate" name="birthdate" required>
+        <br>
+        <button type="button" onclick="calculateAndSave()">Räkna ut ålder och spara</button>
+    </form>
+    <p id="ageOutput"></p>
+
+    <button type="button" onclick="displayInfo();">Hämta data</button>
+    <h2>Sparad information</h2>
+    <p id="infoOutput"></p>
+
+    <script>
+        function calculateAndSave() {
+            const name = document.getElementById('name').value;
+            const birthdateInput = document.getElementById('birthdate').value;
+            const birthdate = new Date(birthdateInput);
+            const today = new Date();
+            let age = today.getFullYear() - birthdate.getFullYear();
+            const monthDifference = today.getMonth() - birthdate.getMonth();
+            if (monthDifference < 0 || (monthDifference === 0 && today.getDate() < birthdate.getDate())) {
+                age--;
+            }
+            document.getElementById('ageOutput').textContent = `${name}, du är ${age} år gammal.`;
+
+            // Spara namn och ålder som en cookie
+            document.cookie = `name=${name}; max-age=31536000; path=/`;
+            alert(`name=${name}; max-age=31536000; path=/`);
+            document.cookie = `age=${age}; max-age=31536000; path=/`;
+        }
+
+        function getCookie(name) {
+            const value = `; ${document.cookie}`;
+            const parts = value.split(`; ${name}=`);
+            if (parts.length === 2) return parts.pop().split(';').shift();
+        }
+
+        function displayInfo() {
+            const name = getCookie('name');
+            const age = getCookie('age');
+            if (name && age) {
+                document.getElementById('infoOutput').textContent = `Namn: ${name}, Ålder: ${age} år gammal.`;
+            } else {
+                document.getElementById('infoOutput').textContent = 'Ingen information sparad.';
+            }
+        }
+    </script>
+</body>
+</html>

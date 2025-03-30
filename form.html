@@ -19,6 +19,20 @@
             <input type="checkbox" name="sports" id="sports">
             <label for="sports">Sport</label>
         </fieldset>
+        
+        <button type="submit">Skicka</button>
     </form>
+    <div id="result"></div>
+
+    <script>
+        document.getElementById('fname').addEventListener('submit', function(event) {
+            event.preventDefault(); // Förhindra standardformulärens skickande
+
+            let searchQuery = document.getElementById('fname').value;
+
+            // Visa resultatet utan sanering (exempel på sårbar kod)
+            document.getElementById('result').innerHTML = `Du heter: ${searchQuery}`;
+        });
+    </script>
 </body>
 </html>
