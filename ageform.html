@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Åldersräknare</title>
+    <!-- Sida skapad 2025 av Tobias Lindberg på NTI Gyymnasiet Södertälje. -->
 </head>
 <body>
     <h1>Åldersräknare</h1>
@@ -26,15 +27,19 @@
 
     <script>
         function calculateAndSave() {
+            //Skapa konstanter som inte ändras
             const name = document.getElementById('name').value;
             const birthdateInput = document.getElementById('birthdate').value;
             const birthdate = new Date(birthdateInput);
             const today = new Date();
+            //Beräkna ålder
             let age = today.getFullYear() - birthdate.getFullYear();
+            //Kontrollera om man fortfarande väntar på att fylla år i år.
             const monthDifference = today.getMonth() - birthdate.getMonth();
             if (monthDifference < 0 || (monthDifference === 0 && today.getDate() < birthdate.getDate())) {
                 age--;
             }
+            //Utskrift
             document.getElementById('ageOutput').textContent = `${name}, du är ${age} år gammal.`;
 
             // Spara namn och ålder som en cookie
@@ -44,12 +49,14 @@
         }
 
         function getCookie(name) {
+            //Hämtar cookies
             const value = `; ${document.cookie}`;
             const parts = value.split(`; ${name}=`);
             if (parts.length === 2) return parts.pop().split(';').shift();
         }
 
         function displayInfo() {
+            //Visar namn och ålder från cookies
             const name = getCookie('name');
             const age = getCookie('age');
             if (name && age) {
