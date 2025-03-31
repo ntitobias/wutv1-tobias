@@ -8,12 +8,14 @@
 <body>
     <h1>Åldersräknare</h1>
     <form id="birthdateForm">
-        <label for="name">Ange ditt namn:</label>
-        <input type="text" id="name" name="name" required>
-        <br>
-        <label for="birthdate">Ange ditt födelsedatum:</label>
-        <input type="date" id="birthdate" name="birthdate" required>
-        <br>
+        <p>
+            <label for="name">Ange ditt namn:</label>
+            <input type="text" id="name" name="name" required>
+        </p>
+        <p>
+            <label for="birthdate">Ange ditt födelsedatum:</label>
+            <input type="date" id="birthdate" name="birthdate" required>
+        </p>
         <button type="button" onclick="calculateAndSave()">Räkna ut ålder och spara</button>
     </form>
     <p id="ageOutput"></p>
